@@ -8,7 +8,7 @@ echo "======== Questions pour la configuration ======== \n\n"
 echo "Quel nom de domaine ?"
 read ndd
 
-echo "Quel mot de passe ?"
+echo "Quel mail ?"
 read email
 
 # Nécessaire pour éviter les erreurs de LOCALE par la suite
