@@ -106,10 +106,12 @@ setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 
 tee -a /etc/caddy/Caddyfile <<EOF
 $ndd {  
-    proxy / ghost:2368 {
+    proxy / localhost:2368 {
         transparent
     }
     tls $email
+    log /var/log/www/caddy/$ndd/access.log
+    errors /var/log/www/caddy/$ndd/error.log
 }
 EOF
 
