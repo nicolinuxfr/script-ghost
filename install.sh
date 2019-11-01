@@ -83,8 +83,8 @@ useradd \
 
 echo "======== Installation de Node.js ========"
 
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
-apt-get install -y nodejs npm
+curl -sL https://deb.nodesource.com/setup_10.x | -E bash
+apt-get install -y nodejs
 
 echo "======== Installation et configuration de MariaDB ========"
 curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
