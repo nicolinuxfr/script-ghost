@@ -34,8 +34,27 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/loket/oh-my-zsh/feature/ba
   echo "Could not install Oh My Zsh" >/dev/stderr
   exit 1
 }
-ln -s ~/config/home/.alias ~/.alias
-ln -sf ~/config/home/.zshrc ~/.zshrc
+
+tee -a ~/.alias  <<EOF
+# Mises à jour
+alias maj="apt-get update"
+alias Maj="apt-get upgrade"
+
+# Fichiers
+alias duf='du -sh *'
+alias df='df -h'
+
+# Services
+alias status="systemctl status"
+alias restart="systemctl restart"
+alias reload="systemctl reload"
+alias start="systemctl start"
+alias stop="systemctl stop"
+EOF
+
+tee -a ~/.zshrc  <<EOF
+source $HOME/.alias
+EOF
 
 # Configuration de zsh comme défaut pour l'utilisateur 
 chsh -s $(which zsh)
