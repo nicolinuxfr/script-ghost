@@ -188,6 +188,29 @@ cd /var/www/$ndd
 
 ghost install
 
+# Création d'un fichier d'alias pour l'utilisateur ubuntu
+
+tee -a ~/.alias <<EOF
+# Mises à jour
+alias maj="apt-get update"
+alias Maj="apt-get upgrade"
+
+# Fichiers
+alias duf='du -sh *'
+alias df='df -h'
+
+# Services
+alias status="systemctl status"
+alias restart="systemctl restart"
+alias reload="systemctl reload"
+alias start="systemctl start"
+alias stop="systemctl stop"
+
+# Ghost
+alias ghost='f() { su - ubuntu -c "cd /var/www/$ndd && ghost $1" };f'
+
+EOF
+
 # Nettoyages
 apt-get -y autoremove
 
